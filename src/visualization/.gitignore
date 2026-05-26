@@ -1,0 +1,10 @@
+__pycache__/
+
+*.pkl
+*.pkl.gz
+*.pkl.zst
+.*.swp
+*.txt
+images/
+data/
+fs_connect.sh

@@ -1,0 +1,8 @@
+log_env
+data/*.zst
+data/*.pkl
+data/
+
+*.pyc
+
+__pycache__

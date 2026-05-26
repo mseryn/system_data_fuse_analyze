@@ -1,0 +1,13 @@
+pandas
+numpy
+matplotlib
+scipy
+plotly
+utils
+numba
+seaborn
+kaleido
+pyyaml
+pyarrow
+zstandard
+tzdata

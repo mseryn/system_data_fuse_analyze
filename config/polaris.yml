@@ -1,0 +1,32 @@
+dataset: polaris
+stages:
+  preprocessing:
+    enabled: true
+    paths:
+      input_dir: data/raw/polaris/april_2024
+      vnode_file: data/raw/polaris/vnode.csv
+      job_comp_file: data/raw/polaris/job_comp.csv
+      output_dir: data/processed/polaris
+      output_filename: april_2024_polaris_preprocessed.pkl.zst
+    parameters:
+
+  analysis:
+    enabled: true
+    paths:
+      input: data/processed/polaris/april_2024_polaris_preprocessed.pkl.zst
+      output_dir: data/analysis/polaris
+      output_filename: april_2024_polaris_analysis.pkl.zst
+    options:
+      force_intake: false
+      force_combine: false
+      join_domains: true
+      domains_file: data/project_to_science_polaris.csv
+
+  visualization:
+    enabled: true
+    paths:
+      input: data/analysis/polaris/april_2024_polaris_analysis.pkl.zst
+      output_dir: figures/polaris/april_2024
+    charts:
+      - histograms
+      - cdfs

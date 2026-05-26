@@ -1,0 +1,33 @@
+dataset: mit
+stages:
+  preprocessing:
+    enabled: true
+    paths:
+      slurm_data: data/raw/mit/april_2021.csv
+      trace_dir: data/raw/mit/traces
+      output_dir: data/processed/mit
+      output_filename: april_2021_mit_preprocessed.pkl
+    parameters:
+      # time_range: null             # optional: {start: <unix timestamp>, end: <unix timestamp>}
+      #                              # omit or set to null to process all jobs
+
+  analysis:
+    enabled: true
+    paths:
+      input: data/processed/mit/april_2021_mit_preprocessed.pkl
+      output_dir: data/analysis/mit
+      output_filename: april_2021_mit_analysis.pkl
+    options:
+      force_intake: false
+      force_combine: false
+      join_domains: false
+      domains_file: null             # path to a CSV with PROJECT_NAME and SCIENCE_FIELD_SHORT columns
+
+  visualization:
+    enabled: true
+    paths:
+      input: data/analysis/mit/april_2021_mit_analysis.pkl
+      output_dir: figures/mit/april_2021
+    chart_sets:
+      - histograms
+      - cdfs
